@@ -11,7 +11,7 @@ import UIKit
 
 class PhotoUploadViewController: UIViewController {
     
-    var photoUploader: PhotoUploader
+    private(set) var photoUploader: PhotoUploader
     
     required init(photoUploader: PhotoUploader) {
         self.photoUploader = photoUploader

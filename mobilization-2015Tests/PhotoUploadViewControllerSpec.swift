@@ -22,20 +22,36 @@ class FakePhotoUploader: PhotoUploader {
 }
 
 class PhotoUploadViewControllerSpec: QuickSpec {
+    
+    
+    
+    
     override func spec() {
         
         var sut: PhotoUploadViewController!
-        var fakePhotoUpload: FakePhotoUploader!
+        var fakePhotoUploader: FakePhotoUploader!
         
         beforeEach {
-            fakePhotoUpload = FakePhotoUploader()
+            fakePhotoUploader = FakePhotoUploader()
             
-            sut = PhotoUploadViewController(photoUploader: fakePhotoUpload)
+            sut = PhotoUploadViewController(photoUploader: fakePhotoUploader)
         }
         
         it("should have a title") {
             expect(sut.title).to(equal("Photo Upload"))
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         // non-bdd
         
@@ -68,9 +84,34 @@ class PhotoUploadViewControllerSpec: QuickSpec {
             }
             
             it("should tell the photo uploader to upload photo") {
-                expect(fakePhotoUpload.photoUploadCalled).to(beTruthy())
+                expect(fakePhotoUploader.photoUploadCalled).to(beTruthy())
             }
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         // bdd
         
@@ -89,13 +130,11 @@ class PhotoUploadViewControllerSpec: QuickSpec {
             describe("when it is tapped") {
                 
                 beforeEach {
-                    if let button = rightBarButtonItem {
-                        button.specSimulateTap()
-                    }
+                    rightBarButtonItem?.specSimulateTap()
                 }
                 
                 it("should tell the photo uploader to upload photo") {
-                    expect(fakePhotoUpload.photoUploadCalled).to(beTruthy())
+                    expect(fakePhotoUploader.photoUploadCalled).to(beTruthy())
                 }
             }
         }
